@@ -5,10 +5,12 @@ pipeline {
     stages {
         stage('CreateTar') {
             steps {
+			node {
                 echo "creating tar in directory ${WORKSPACE}" 
 				 def files = getAllFiles(createFilePath("${workspace}"))
 				 echo "${files}"
 				echo 'tar created successfully'
+				}
             }
         }
         stage('CreateDockerImage') {
