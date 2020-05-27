@@ -6,7 +6,8 @@ pipeline {
         stage('CreateTar') {
             steps {
                 echo "creating tar in directory ${WORKSPACE}" 
-				
+				 def files = getAllFiles(createFilePath("${workspace}"))
+				 echo "${files}"
 				echo 'tar created successfully'
             }
         }
@@ -21,5 +22,14 @@ pipeline {
             }
         }
     }
+}
+def getAllFiles(rootPath) {
+    def list = []
+    for (subPath in rootPath.list()) {
+        list << subPath.getName()
+        // in case you don't want extension
+        // list << FilenameUtils.removeExtension(subPath.getName())
+    }
+    return list
 }
 echo 'Jenkins File Code ending'
