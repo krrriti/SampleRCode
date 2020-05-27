@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('CreateTar') {
             steps {
-			node {
+			step {
                 echo "creating tar in directory ${WORKSPACE}" 
 				 def files = getAllFiles(createFilePath("${workspace}"))
 				 echo "${files}"
