@@ -5,8 +5,8 @@ pipeline {
     stages {
         stage('CreateTar') {
             steps {
-                echo 'creating tar'
-				tar -zvcf 'SampleRCode.tar.gz' 'dbpoc_split'
+                echo "creating tar in directory ${WORKSPACE}" 
+				
 				echo 'tar created successfully'
             }
         }
