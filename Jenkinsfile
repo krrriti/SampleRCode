@@ -1,3 +1,4 @@
+#!groovy
 echo 'Jenkins File Code started'
 pipeline {
     agent any 
@@ -5,12 +6,12 @@ pipeline {
     stages {
         stage('CreateTar') {
             steps {
-			step {
+			
                 echo "creating tar in directory ${WORKSPACE}" 
-				 def files = getAllFiles(createFilePath("${workspace}"))
+				 def files = getAllFiles("${workspace}")
 				 echo "${files}"
 				echo 'tar created successfully'
-				}
+
             }
         }
         stage('CreateDockerImage') {
