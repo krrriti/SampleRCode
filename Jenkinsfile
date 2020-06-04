@@ -1,38 +1,16 @@
-#!groovy
-echo 'Jenkins File Code started'
 pipeline {
-    agent any 
-
+    agent { 
+		dockerfile	{
+			filename 'Dockerfile.txt'
+			label 'test1'
+		}
+	}
     stages {
-        stage('CreateTar') {
+        stage('Test') {
             steps {
-			
-                echo "creating tar in directory ${WORKSPACE}" 
-				 def files = getAllFiles("${workspace}")
-				 echo "${files}"
-				echo 'tar created successfully'
-
-            }
-        }
-        stage('CreateDockerImage') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('UploadToGCR') {
-            steps {
-                echo 'Deploying....'
+                sh 'node --version'
+                sh 'svn --version'
             }
         }
     }
 }
-def getAllFiles(rootPath) {
-    def list = []
-    for (subPath in rootPath.list()) {
-        list << subPath.getName()
-        // in case you don't want extension
-        // list << FilenameUtils.removeExtension(subPath.getName())
-    }
-    return list
-}
-echo 'Jenkins File Code ending'

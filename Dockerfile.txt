@@ -1,0 +1,7 @@
+#Base image https://hub.docker.com/u/rocker/
+FROM rocker/r-base:latest
+
+MAINTAINER Kriti Saxena <krrriti@gmail.com>
+
+RUN apt-get update
+CMD ["echo","Hello World...!"]
