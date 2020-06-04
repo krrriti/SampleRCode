@@ -1,15 +1,20 @@
 pipeline {
-    agent { 
-		dockerfile	{
-			filename 'Dockerfile.txt'
-			label 'test1'
-		}
-	}
+    agent any
+	
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'node --version'
-                sh 'svn --version'
+				echo "building..."
+            }
+        }
+		stage('test') {
+            steps {
+				echo "testing..."
+            }
+        }
+		stage('upload') {
+            steps {
+				echo "uploading..."
             }
         }
     }
