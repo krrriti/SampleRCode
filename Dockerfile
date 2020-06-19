@@ -4,6 +4,4 @@ FROM rstudio/r-session-complete:centos7-1.3.959-1
 
 RUN yum update -y && \
     yum install -y \
-    package1 \
-    package2 && \
     yum clean all
