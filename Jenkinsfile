@@ -15,7 +15,7 @@ pipeline {
 				echo "building..."
 				script
 				{
-					app = docker.build("build/Dockerfile")
+					app = docker.build()
 				}
 				echo "image built"
             }
