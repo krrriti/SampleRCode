@@ -5,7 +5,8 @@ pipeline {
         stage('Build') {
             steps {
 				echo "building..."
-				echo "updated"
+				docker build -t SampleRImage:{currentBuild} -f Dockerfile .
+				echo "image built"
             }
         }
 		stage('test') {
