@@ -15,7 +15,10 @@ pipeline {
         stage('Build') {
             steps {
 				echo "building..."
-				app = docker.build("build/Dockerfile")
+				script
+				{
+					app = docker.build("build/Dockerfile")
+				}
 				echo "image built"
             }
         }
