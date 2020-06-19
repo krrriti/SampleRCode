@@ -16,6 +16,11 @@ RUN apt-get update && \
 	apt-get install git && \
 # Cleanup old packages
     apt-get -qy autoremove && \
+# Add user jenkins to the image
+    adduser --quiet jenkins && \
+
+RUN chown -R jenkins:jenkins /home/jenkins/.ssh/
+
 # Standard SSH port
 EXPOSE 22
 
