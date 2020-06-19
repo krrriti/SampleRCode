@@ -15,7 +15,7 @@ pipeline {
 				echo "building..."
 				script
 				{
-					app = docker.build("./","SampleImage:1.1")
+					app = docker.build("","SampleImage:1.1")
 				}
 				echo "image built"
             }
