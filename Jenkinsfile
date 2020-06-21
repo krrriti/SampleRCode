@@ -13,11 +13,6 @@ pipeline {
         stage('Build') {
             steps {
 				echo "building..."
-				script
-				{
-					app = docker.build("krrriti/SampleRCode","SampleImage:1.1")
-				}
-				echo "image built"
             }
         }
 		stage('test') {
